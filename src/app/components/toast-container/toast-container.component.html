@@ -1,0 +1,51 @@
+<div class="fixed top-5 right-5 z-50">
+  @for (toast of toasts; track $index) {
+  <div
+    class="w-64 mb-2 p-2 rounded text-white opacity-90 relative overflow-hidden {{
+      toast.type === 'success'
+        ? 'bg-[#28a745]'
+        : toast.type === 'error'
+        ? 'bg-[#dc3545]'
+        : toast.type === 'info'
+        ? 'bg-[#17a2b8]'
+        : toast.type === 'warning'
+        ? 'bg-[#ffc107]'
+        : 'bg-gray-600'
+    }}"
+  >
+    <!-- Línea de tiempo -->
+    <div
+      class="absolute bottom-0 left-0 h-1 {{
+        toast.type === 'success'
+          ? 'bg-green-300'
+          : toast.type === 'error'
+          ? 'bg-red-300'
+          : toast.type === 'info'
+          ? 'bg-cyan-300'
+          : toast.type === 'warning'
+          ? 'bg-yellow-300'
+          : 'bg-gray-300'
+      }}"
+      [style.width.%]="toast.progress"
+      [style.transition]="'width 0.05s linear'"
+    ></div>
+
+    <div class="flex justify-between items-center">
+      <strong>{{ toast.title }}</strong>
+      <button
+        type="button"
+        class="bg-none border-none text-white text-base cursor-pointer"
+        (click)="removeToast(toast)"
+      >
+        &times;
+      </button>
+    </div>
+    <div class="text-sm text-white text-pretty">
+      {{ toast.body }}
+      @if (toast.url) {
+      <a [href]="toast.url" target="_blank">Ver más</a>
+      }
+    </div>
+  </div>
+  }
+</div>
