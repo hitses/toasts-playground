@@ -37,7 +37,7 @@ export class ToastService {
     return this.toastSubject.asObservable();
   }
 
-  success(title: string, body: string, url?: string, duration?: number) {
+  success(title: string, body: string, url?: string, duration: number = 5000) {
     this.addToast({
       title,
       body,
@@ -49,7 +49,7 @@ export class ToastService {
     });
   }
 
-  error(title: string, body: string, url?: string, duration?: number) {
+  error(title: string, body: string, url?: string, duration: number = 5000) {
     this.addToast({
       title,
       body,
@@ -61,7 +61,7 @@ export class ToastService {
     });
   }
 
-  info(title: string, body: string, url?: string, duration?: number) {
+  info(title: string, body: string, url?: string, duration: number = 5000) {
     this.addToast({
       title,
       body,
@@ -73,7 +73,7 @@ export class ToastService {
     });
   }
 
-  warning(title: string, body: string, url?: string, duration?: number) {
+  warning(title: string, body: string, url?: string, duration: number = 5000) {
     this.addToast({
       title,
       body,

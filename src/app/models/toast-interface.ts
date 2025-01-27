@@ -1,10 +1,10 @@
 export interface Toast {
   title: string;
   body: string;
+  type: 'success' | 'error' | 'info' | 'warning';
+  timestamp: number;
   url?: string;
   duration?: number;
-  type: 'success' | 'error' | 'info' | 'warning';
   timerId?: any;
-  timestamp: number;
-  progress: number;
+  progress: number; // Porcentaje de progreso del toast, seguramente desechable por no usar barra de tiempo
 }
